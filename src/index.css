@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.5rem;
+
+    /* Brand colors */
+    --brand-teal-50: 180 100% 95%;
+    --brand-teal-100: 180 100% 90%;
+    --brand-teal-200: 180 100% 80%;
+    --brand-teal-300: 180 100% 70%;
+    --brand-teal-400: 180 100% 60%;
+    --brand-teal-500: 180 100% 50%;
+    --brand-teal-600: 180 100% 40%;
+    --brand-teal-700: 180 100% 30%;
+    --brand-teal-800: 180 100% 20%;
+    --brand-teal-900: 180 100% 10%;
+
+    --brand-cyan-500: 190 100% 50%;
+    --brand-cyan-900: 190 100% 10%;
+
+    --brand-gold-500: 45 100% 50%;
+    --brand-gold-600: 45 100% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-[hsl(var(--border))];
+  }
+  body {
+    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))];
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--brand-teal-400))] to-[hsl(var(--brand-cyan-500))];
+  }
+
+  .gradient-border {
+    @apply border border-transparent relative;
+    background-clip: padding-box;
+    background-image: linear-gradient(to right, hsl(var(--brand-teal-500)), hsl(var(--brand-cyan-500)));
+  }
+
+  .hero-gradient {
+    background: radial-gradient(circle at 50% 50%, rgba(0, 204, 204, 0.1) 0%, rgba(0, 0, 0, 0) 50%);
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+}
